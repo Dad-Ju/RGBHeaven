@@ -15,7 +15,8 @@
 		"socket.io": "^4.4.1"
 	},
 	"optionalDependencies": {
-		"rpi-ws281x-native": "^1.0.3"
+		"rpi-ws281x-native": "^1.0.3",
+		"rpi-gpio": "^2.1.7"
 	},
 	"devDependencies": {
 		"nodemon": "^2.0.15"
