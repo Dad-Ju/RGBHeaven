@@ -1,0 +1,23 @@
+{
+	"name": "client",
+	"description": "Client to deploy on the RPi",
+	"version": "1.0.0",
+	"license": "MIT",
+	"main": "index.js",
+	"scripts": {
+		"dev": "nodemon ."
+	},
+	"nodemonConfig": {
+		"ignore": [],
+		"delay": 0
+	},
+	"dependencies": {
+		"socket.io": "^4.4.1"
+	},
+	"optionalDependencies": {
+		"rpi-ws281x-native": "^1.0.3"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.15"
+	}
+}

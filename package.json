@@ -1,0 +1,28 @@
+{
+  "name": "rgbheaven",
+  "version": "1.0.0",
+  "description": "The RGB Heaven that I build, Follow my Progress on IG:Dad_Ju",
+  "repository": "https://github.com/Dad-Ju/RGBHeaven.git",
+  "author": "Juu",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "client" : "yarn workspace client",
+    "server": "yarn workspace server",
+    "lint": "eslint --fix ./",
+    "dev": "concurrently --kill-others \"yarn client dev\" \"yarn server dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "eslint": "^8.7.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "prettier": "^2.5.1"
+  }
+}

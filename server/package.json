@@ -1,0 +1,21 @@
+{
+    "name": "server",
+    "description": "Server that does the Processing of Animations and serves as Webcontrollpanel",
+    "version": "1.0.0",
+    "license": "MIT",
+    "main": "server.js",
+    "scripts": {
+        "dev": "nodemon ."
+    },
+    "nodemonConfig": {
+        "ignore": [],
+        "delay": 0
+    },
+    "dependencies": {
+        "express": "^4.17.2",
+        "socket.io": "^4.4.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.15"
+    }
+}

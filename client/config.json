@@ -1,0 +1,10 @@
+{
+	"port": 3000,
+	"stripes": [
+		{
+			"LEDS": 100,
+			"type": "WS2812B",
+			"cOrder": "GRB"
+		}
+	]
+}
