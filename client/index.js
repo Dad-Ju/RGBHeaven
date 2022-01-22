@@ -1,6 +1,6 @@
 const io = require('socket.io')()
 // eslint-disable-next-line import/no-unresolved
-const { Driver: LedDriver, StripType } = require('rpi-ws281x-led')
+const { default: LedDriver, StripType } = require('rpi-ws281x-led')
 const config = require('./config.json')
 
 const ledDriver = new LedDriver({
