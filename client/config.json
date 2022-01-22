@@ -2,8 +2,9 @@
 	"port": 3000,
 	"stripes": [
 		{
+			"Pin": 18,
 			"LEDS": 100,
-			"type": "WS2812B",
+			"type": "WS2812",
 			"cOrder": "GRB"
 		}
 	]
