@@ -35,6 +35,8 @@ io.on('connection', (client) => {
 	updateState()
 
 	client.on('frame', (data) => {
+		console.log('🚀 ~ file: index.js ~ line 38 ~ client.on ~ data', data)
+
 		const formated = data.map((val) => parseInt(val))
 		console.log(
 			'🚀 ~ file: index.js ~ line 42 ~ client.on ~ formated',
