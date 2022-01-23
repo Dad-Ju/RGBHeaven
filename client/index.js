@@ -20,7 +20,8 @@ const stripe = ledDriver.channels[0]
 stripe.leds = new Uint32Array(config.stripe.LEDS).fill(0xffffff)
 io.on('connection', (client) => {
 	const updateState = () => {
-		const leds = Array.from(stripe.leds)
+		const leds = Array.from(stripe.leds).map((val) => val.toString(16))
+
 		console.log(
 			'🚀 ~ file: index.js ~ line 24 ~ updateState ~ leds',
 			leds.length
