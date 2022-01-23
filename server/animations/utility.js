@@ -12,7 +12,7 @@ const sleep = (time, checkInterrupt) =>
 				clearInterval(interval)
 				res()
 			}
-		}, 50)
+		}, 5)
 	})
 
 const colorWipeRaw = async (color, timeout, checkInterrupt) => {
@@ -28,4 +28,4 @@ const colorWipeRaw = async (color, timeout, checkInterrupt) => {
 	}
 }
 
-module.exports = { colorWipeRaw }
+module.exports = { colorWipeRaw, sleep }
