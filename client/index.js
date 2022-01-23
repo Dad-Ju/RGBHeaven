@@ -18,7 +18,7 @@ const ledDriver = new LedDriver({
 
 const stripe = ledDriver.channels[0]
 
-stripe.leds = new Uint32Array(config.stripes[0].LEDS).fill(0xffffff)
+stripe.leds = new Uint32Array(config.stripes[0].LEDS).fill(0x00ff00)
 stripe.render()
 
 console.log('Showing Stripe!')
