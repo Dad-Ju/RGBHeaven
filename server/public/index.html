@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            const server = io()
+            const sendData = (form) => {
+                server.emit("frame", form.num.value)
+            }
+        </script>
+    </head>
+    <body>
+        <form name="testform" action="" method="get">
+            <input id="num" type="number" value="0xFFFFFF">
+            <input type="submit" onclick="sendData(this.form)">
+        </form>
+    </body>
+</html>

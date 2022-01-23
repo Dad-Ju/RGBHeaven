@@ -1,5 +1,5 @@
+/* eslint-disable import/no-unresolved */
 const io = require('socket.io')()
-// eslint-disable-next-line import/no-unresolved
 const { default: LedDriver, StripType } = require('rpi-ws281x-led')
 const config = require('./config.json')
 
@@ -18,18 +18,16 @@ const ledDriver = new LedDriver({
 
 const stripe = ledDriver.channels[0]
 
-stripe.leds = new Uint32Array(config.stripes[0].LEDS).fill(0x00ff00)
-stripe.render()
-
-console.log('Showing Stripe!')
-
 io.on('connection', (client) => {
 	console.log(client)
 	client.on('frame', (data) => {
-		console.log(data)
+		stripe.leds = new Uint32Array(config.stripes[0].LEDS).fill(data)
+		stripe.render()
+
+		console.log('Showing Stripe!')
 	})
 	client.on('mode', () => {})
 	client.on('disconnect', () => {})
 })
 
-io.listen(3000)
+io.listen(config.port)
