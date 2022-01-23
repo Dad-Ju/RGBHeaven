@@ -9,10 +9,7 @@
 	},
 	"nodemonConfig": {
 		"ignore": [],
-		"ext": [
-			"js",
-			"html"
-		],
+		"ext": "js,html",
 		"delay": 0
 	},
 	"dependencies": {
