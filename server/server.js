@@ -6,6 +6,10 @@ const rpi = require('socket.io-client')('http://localhost:3001')
 
 app.use(express.static('public'))
 
+rpi.on('init', (stripe) => {
+	console.log(stripe)
+})
+
 io.on('connection', (client) => {
 	client.on('frame', (raw) => {
 		const data = raw.replace('#', '0x')

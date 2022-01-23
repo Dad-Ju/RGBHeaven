@@ -19,6 +19,7 @@ const ledDriver = new LedDriver({
 const stripe = ledDriver.channels[0]
 
 io.on('connection', (client) => {
+	client.emit('init', stripe)
 	client.on('frame', (data) => {
 		stripe.leds = new Uint32Array(config.stripes[0].LEDS).fill(data)
 		stripe.render()
