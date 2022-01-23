@@ -31,7 +31,7 @@ server.once('listening', () => {
 	console.log(
 		`Server is up and Running on Port: ${3000}, setting default mode now.`
 	)
-	rpi.emit('frame', Array(150).fill('0xffffff'))
+	rpi.emit('frame', Array(stripe.ledcount).fill('0xffffff'))
 })
 
 server.listen(3000)
