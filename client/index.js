@@ -21,7 +21,10 @@ const stripe = ledDriver.channels[0]
 io.on('connection', (client) => {
 	const updateState = () => {
 		const leds = Array.from(stripe.leds)
-		console.log('🚀 ~ file: index.js ~ line 24 ~ updateState ~ leds', leds)
+		console.log(
+			'🚀 ~ file: index.js ~ line 24 ~ updateState ~ leds',
+			leds.length
+		)
 
 		client.emit('state', {
 			ledcount: config.stripes[0].LEDS,
