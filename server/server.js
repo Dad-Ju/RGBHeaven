@@ -23,7 +23,7 @@ io.on('connection', (client) => {
 		const color = parseInt(raw.color.replace('#', '0x'))
 		console.log(`Recived: ${raw}, Sending it to Animation now!`)
 		setInterrupt()
-		setTimeout(colorWipe(color, raw.timeout), 12)
+		setTimeout(() => colorWipe(color, raw.timeout), 12)
 	})
 })
 
