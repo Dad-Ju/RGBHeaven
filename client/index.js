@@ -23,9 +23,6 @@ io.on('connection', (client) => {
 		const leds = Array.from(stripe.leds).map(
 			(val) => `0x${val.toString(16)}`
 		)
-
-		console.log('🚀 ~ file: index.js ~ line 24 ~ updateState ~ leds', leds)
-
 		client.emit('state', {
 			ledcount: config.stripe.LEDS,
 			leds,
@@ -35,19 +32,13 @@ io.on('connection', (client) => {
 	updateState()
 
 	client.on('frame', (data) => {
-		console.log('🚀 ~ file: index.js ~ line 38 ~ client.on ~ data', data)
-
 		const formated = data.map((val) => parseInt(val))
-		console.log(
-			'🚀 ~ file: index.js ~ line 42 ~ client.on ~ formated',
-			formated
-		)
 
 		stripe.leds = Uint32Array.from(formated)
 
 		console.log(
-			'🚀 ~ file: index.js ~ line 44 ~ client.on ~ stripe.leds',
-			stripe.leds
+			'🚀 ~ file: index.js ~ line 44 ~ client.on ~ stripe',
+			stripe
 		)
 
 		stripe.render()
