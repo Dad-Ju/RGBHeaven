@@ -1,7 +1,11 @@
 // eslint-disable-next-line import/no-unresolved
 const rpi = require('socket.io-client')('http://localhost:3001')
 
-let stripe = {}
+let stripe = {
+	ledcount: 0,
+	leds: new Uint32Array(),
+	brightness: 50,
+}
 
 rpi.on('state', (newStripe) => {
 	console.log(
