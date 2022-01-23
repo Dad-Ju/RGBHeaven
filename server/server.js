@@ -10,6 +10,7 @@ const rpi = client('http://localhost:3001')
 
 io.on('connection', () => {
 	io.on('frame', (data) => {
+		console.log(`Recived: ${data}, Sending it to RPI now!`)
 		rpi.emit('frame', data)
 	})
 })
