@@ -5,7 +5,7 @@
         <script>
             const server = io()
             const sendData = (form) => {
-                console.log(form)
+                console.log(parseInt(form.num.value))
                 server.emit("frame", parseInt(form.num.value))
             }
         </script>
