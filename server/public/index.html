@@ -5,13 +5,13 @@
         <script>
             const server = io()
             const sendData = (form) => {
-                server.emit("frame", form.num.value)
+                server.emit("frame", parseInt(form.num.value))
             }
         </script>
     </head>
     <body>
         <form name="testform" action="" method="get">
-            <input id="num" type="number" value="0xFFFFFF">
+            <input id="num" type="text" value="0xFFFFFF">
             <input type="submit" onclick="sendData(this.form)">
         </form>
     </body>
