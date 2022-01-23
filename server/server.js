@@ -12,7 +12,11 @@ io.on('connection', (client) => {
 		setInterrupt()
 		const data = parseInt(raw.replace('#', '0x'))
 		console.log(`Recived: ${data}, Sending it to RPI now!`)
-		rpi.emit('frame', Array(stripe.ledcount).fill(data))
+		const leds = Array(stripe.ledcount).fill(data)
+
+		console.log('🚀 ~ file: server.js ~ line 16 ~ client.on ~ leds', leds)
+
+		rpi.emit('frame', leds)
 	})
 
 	client.on('setMode', (raw) => {

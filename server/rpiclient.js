@@ -2,7 +2,7 @@ const rpi = require('socket.io-client')('http://localhost:3001')
 
 let stripe = {
 	ledcount: 0,
-	leds: new Uint32Array(),
+	leds: Array(0).fill(0xffffff),
 	brightness: 50,
 }
 
