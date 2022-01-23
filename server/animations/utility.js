@@ -1,3 +1,1 @@
-const colorWipe = (rpi, color, timeout){
-    
-}
+const colorWipe = (rpi, color, timeout) => {}

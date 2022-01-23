@@ -2,13 +2,9 @@ const express = require('express')
 const app = require('express')()
 const server = require('http').createServer(app)
 const io = require('socket.io')(server)
-const rpi = require('socket.io-client')('http://localhost:3001')
+const { rpi } = require('./rpiclient')
 
 app.use(express.static('public'))
-
-rpi.on('init', (stripe) => {
-	console.log(stripe.leds.length)
-})
 
 io.on('connection', (client) => {
 	client.on('frame', (raw) => {

@@ -3,7 +3,7 @@
 	"stripes": [
 		{
 			"Pin": 18,
-			"LEDS": 100,
+			"LEDS": 150,
 			"type": "WS2812",
 			"cOrder": "GRB"
 		}
