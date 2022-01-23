@@ -11,7 +11,7 @@ const ledDriver = new LedDriver({
 			gpio: config.stripes[0].Pin,
 			count: config.stripes[0].LEDS,
 			type: StripType.WS2812_STRIP,
-			brightness: 60,
+			brightness: 100,
 		},
 	],
 })
