@@ -8,8 +8,8 @@ const ledDriver = new LedDriver({
 	frequency: 800000,
 	channels: [
 		{
-			gpio: config.stripes[0].Pin,
-			count: config.stripes[0].LEDS,
+			gpio: config.stripe.Pin,
+			count: config.stripe.LEDS,
 			type: StripType.WS2812_STRIP,
 			brightness: 50,
 		},
@@ -17,7 +17,7 @@ const ledDriver = new LedDriver({
 })
 
 const stripe = ledDriver.channels[0]
-
+stripe.leds = new Uint32Array(config.stripe.LEDS).fill(0xffffff)
 io.on('connection', (client) => {
 	const updateState = () => {
 		const leds = Array.from(stripe.leds)
@@ -27,7 +27,7 @@ io.on('connection', (client) => {
 		)
 
 		client.emit('state', {
-			ledcount: config.stripes[0].LEDS,
+			ledcount: config.stripe.LEDS,
 			leds,
 			brightness: stripe.brightness,
 		})
