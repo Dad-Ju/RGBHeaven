@@ -3,15 +3,15 @@ const io = require('socket.io')()
 const { default: LedDriver, StripType } = require('rpi-ws281x-led')
 const config = require('./config.json')
 
-console.log(StripType[`${config.stripes[0].type}_STRIP`])
-
 const ledDriver = new LedDriver({
+	dma: 10,
+	frequency: 800000,
 	channels: [
 		{
 			gpio: config.stripes[0].Pin,
 			count: config.stripes[0].LEDS,
 			type: StripType.WS2812_STRIP,
-			brightness: 30,
+			brightness: 60,
 		},
 	],
 })
