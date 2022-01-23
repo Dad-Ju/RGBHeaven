@@ -12,7 +12,7 @@ const sleep = (time, checkInterrupt) =>
 				clearInterval(interval)
 				res()
 			}
-		}, 5)
+		}, 10)
 	})
 
 const colorWipeRaw = async (color, timeout, checkInterrupt) => {
