@@ -19,22 +19,24 @@ const ledDriver = new LedDriver({
 const stripe = ledDriver.channels[0]
 
 io.on('connection', (client) => {
-	client.emit('state', {
-		ledcount: config.stripes[0].LEDS,
-		leds: stripe.leds,
-		brightness: stripe.brightness,
-	})
+	const updateState = () => {
+		const leds = Array.from(stripe.leds)
+		console.log('🚀 ~ file: index.js ~ line 24 ~ updateState ~ leds', leds)
+
+		client.emit('state', {
+			ledcount: config.stripes[0].LEDS,
+			leds,
+			brightness: stripe.brightness,
+		})
+	}
+	updateState()
 
 	client.on('frame', (data) => {
 		stripe.leds = data
 		stripe.render()
 
 		console.log('Showing Stripe!')
-		client.emit('state', {
-			ledcount: config.stripes[0].LEDS,
-			leds: stripe.leds,
-			brightness: stripe.brightness,
-		})
+		updateState()
 	})
 
 	client.on('mode', () => {})
