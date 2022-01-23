@@ -7,12 +7,9 @@ const rpi = require('socket.io-client')('http://localhost:3001')
 app.use(express.static('public'))
 
 io.on('connection', (client) => {
-	client.on('frame', (raw) => {
-		console.log('🚀 ~ file: server.js ~ line 11 ~ client.on ~ raw', raw)
-		const data = parseInt(raw.toLowerCase())
-		console.log('🚀 ~ file: server.js ~ line 12 ~ client.on ~ data', data)
+	client.on('frame', (data) => {
 		console.log(`Recived: ${data}, Sending it to RPI now!`)
-		rpi.emit('frame', raw)
+		rpi.emit('frame', data)
 	})
 })
 
