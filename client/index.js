@@ -20,7 +20,9 @@ const stripe = ledDriver.channels[0]
 stripe.leds = new Uint32Array(config.stripe.LEDS).fill(0xffffff)
 io.on('connection', (client) => {
 	const updateState = () => {
-		const leds = Array.from(stripe.leds).map((val) => val.toString(16))
+		const leds = Array.from(stripe.leds).map(
+			(val) => `0x${val.toString(16)}`
+		)
 
 		console.log(
 			'🚀 ~ file: index.js ~ line 24 ~ updateState ~ leds',
@@ -36,7 +38,15 @@ io.on('connection', (client) => {
 	updateState()
 
 	client.on('frame', (data) => {
-		stripe.leds = data
+		const formated = data.map((val) => parseInt(val))
+
+		stripe.leds = Uint32Array.from(formated)
+
+		console.log(
+			'🚀 ~ file: index.js ~ line 44 ~ client.on ~ stripe.leds',
+			stripe.leds
+		)
+
 		stripe.render()
 
 		console.log('Showing Stripe!')
