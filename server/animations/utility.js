@@ -22,7 +22,7 @@ const colorWipeRaw = async (color, timeout, checkInterrupt) => {
 			return
 		}
 		stripe.leds[i] = color
-		rpi.emit('frame', stripe.leds)
+		rpi.emit('frame', stripe.leds.buffer)
 
 		sleep(timeout)
 	}
