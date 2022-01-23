@@ -9,7 +9,7 @@
                 server.emit("setStatic", form.num.value)
             }
 
-            const startAnimation = () => {
+            const startAnimation = (form) => {
                 console.log("Sending to Client", form.mode.value)
                 server.emit("setMode", {mode: form.mode.value, color: form.mode.value, timeout: form.ms.value})
             }
