@@ -5,8 +5,8 @@
         <script>
             const server = io()
             const sendData = (form) => {
-                console.log(parseInt(form.num.value))
-                server.emit("frame", parseInt(form.num.value))
+                console.log(parseInt(form.num.value, 16))
+                server.emit("frame", parseInt(form.num.value, 16))
             }
         </script>
     </head>
