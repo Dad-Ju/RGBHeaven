@@ -11,7 +11,7 @@ const ledDriver = new LedDriver({
 			gpio: config.stripes[0].Pin,
 			count: config.stripes[0].LEDS,
 			type: StripType.WS2812_STRIP,
-			brightness: 100,
+			brightness: 50,
 		},
 	],
 })
@@ -19,7 +19,7 @@ const ledDriver = new LedDriver({
 const stripe = ledDriver.channels[0]
 
 io.on('connection', (client) => {
-	client.emit('init', stripe)
+	client.emit('init', { leds: stripe.leds, brightness: stripe.brightness })
 	client.on('frame', (data) => {
 		stripe.leds = new Uint32Array(config.stripes[0].LEDS).fill(data)
 		stripe.render()
