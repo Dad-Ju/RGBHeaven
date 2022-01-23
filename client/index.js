@@ -39,6 +39,10 @@ io.on('connection', (client) => {
 
 	client.on('frame', (data) => {
 		const formated = data.map((val) => parseInt(val))
+		console.log(
+			'🚀 ~ file: index.js ~ line 42 ~ client.on ~ formated',
+			formated
+		)
 
 		stripe.leds = Uint32Array.from(formated)
 
