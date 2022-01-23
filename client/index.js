@@ -24,10 +24,7 @@ io.on('connection', (client) => {
 			(val) => `0x${val.toString(16)}`
 		)
 
-		console.log(
-			'🚀 ~ file: index.js ~ line 24 ~ updateState ~ leds',
-			leds.length
-		)
+		console.log('🚀 ~ file: index.js ~ line 24 ~ updateState ~ leds', leds)
 
 		client.emit('state', {
 			ledcount: config.stripe.LEDS,
