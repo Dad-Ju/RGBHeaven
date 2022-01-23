@@ -8,10 +8,11 @@ app.use(express.static('public'))
 
 io.on('connection', (client) => {
 	client.on('frame', (raw) => {
+		console.log('🚀 ~ file: server.js ~ line 11 ~ client.on ~ raw', raw)
 		const data = parseInt(raw.toLowerCase())
 		console.log('🚀 ~ file: server.js ~ line 12 ~ client.on ~ data', data)
 		console.log(`Recived: ${data}, Sending it to RPI now!`)
-		rpi.emit('frame', data)
+		rpi.emit('frame', raw)
 	})
 })
 
