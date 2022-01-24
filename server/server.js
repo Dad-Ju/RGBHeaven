@@ -18,6 +18,7 @@ io.on('connection', (client) => {
 
 		console.log(`Recived Static: ${data}, Sending it to RPI now!`)
 		const leds = new Uint32Array(stripe.ledcount).fill(data)
+		console.log('🚀 ~ file: server.js ~ line 21 ~ client.on ~ leds', leds)
 
 		rpi.emit('frame', leds.buffer)
 	})
