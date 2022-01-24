@@ -4,7 +4,7 @@ const { rpi, stripe } = require('../rpiclient')
 const sleep = (time, checkInterrupt) =>
 	// eslint-disable-next-line implicit-arrow-linebreak
 	new Promise((res) => {
-		const timeout = setTimeout(res(), time)
+		const timeout = setTimeout(() => res(), time)
 
 		const interval = setInterval(() => {
 			if (checkInterrupt()) {
