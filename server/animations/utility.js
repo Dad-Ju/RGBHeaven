@@ -32,7 +32,7 @@ const colorWipeRaw = async (color, timeout, checkInterrupt) => {
 		rpi.emit('frame', Array.from(stripe.leds))
 
 		// eslint-disable-next-line no-await-in-loop
-		await sleep(timeout)
+		await sleep(timeout, checkInterrupt)
 	}
 }
 
