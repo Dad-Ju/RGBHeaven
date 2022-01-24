@@ -11,7 +11,7 @@
 
             const startAnimation = (form) => {
                 console.log("Sending to Client", form.mode.value)
-                server.emit("setMode", {mode: form.mode.value, color: form.color.value, timeout: parseInt(form.ms.value)})
+                server.emit("setMode", {mode: form.mode.value, color: form.color.value, timeout: parseInt(form.timeout.value)})
             }
         </script>
     </head>
