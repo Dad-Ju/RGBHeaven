@@ -19,7 +19,7 @@ io.on('connection', (client) => {
 	})
 
 	client.on('setMode', (raw) => {
-		const color = parseInt(raw.color.replace('#', '0x')).toString(16)
+		const color = raw.color.replace('#', '0x')
 		console.log(`Recived Animation: ${raw}, Sending it to Animation now!`)
 
 		setInterrupt()
