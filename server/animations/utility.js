@@ -23,9 +23,11 @@ const colorWipeRaw = async (color, timeout, checkInterrupt) => {
 			i = stripe.ledcount
 			return
 		}
-		stripe.leds[i] = color
+		stripe.leds[i] = parseInt(color)
 
-		console.log(stripe.leds)
+		if (i < 10) {
+			console.log(stripe.leds)
+		}
 
 		rpi.emit('frame', Array.from(stripe.leds))
 
