@@ -13,14 +13,13 @@ io.on('connection', (client) => {
 		const data = raw.replace('#', '0x')
 		console.log(`Recived Static: ${data}, Sending it to RPI now!`)
 		const leds = new Uint32Array(stripe.ledcount).fill(data)
-		console.log('🚀 ~ file: server.js ~ line 21 ~ client.on ~ leds', leds)
 
 		rpi.emit('frame', Array.from(leds))
 	})
 
 	client.on('setMode', (raw) => {
 		const color = raw.color.replace('#', '0x')
-		console.log(`Recived Animation: ${raw}, Sending it to Animation now!`)
+		console.log('Recived Animation, Sending it to Animation now!', raw)
 
 		setInterrupt()
 		setTimeout(() => colorWipe(color, raw.timeout), 12)
