@@ -31,12 +31,6 @@ io.on('connection', (client) => {
 
 	client.on('frame', (data) => {
 		stripe.leds = new Uint32Array(data)
-
-		console.log(
-			'🚀 ~ file: index.js ~ line 44 ~ client.on ~ stripe',
-			stripe
-		)
-
 		stripe.render()
 
 		console.log('Showing Stripe!')
