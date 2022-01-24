@@ -16,6 +16,8 @@ const sleep = (time, checkInterrupt) =>
 	})
 
 const colorWipeRaw = async (color, timeout, checkInterrupt) => {
+	console.log('🚀 ~ file: utility.js ~ line 30 ~ colorWipeRaw ~ color', color)
+
 	for (let i = 0; i < stripe.ledcount; i += 1) {
 		if (checkInterrupt()) {
 			i = stripe.ledcount
