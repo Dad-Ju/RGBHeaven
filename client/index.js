@@ -23,7 +23,7 @@ io.on('connection', (client) => {
 	const updateState = () => {
 		client.emit('state', {
 			ledcount: config.stripe.LEDS,
-			leds: stripe.leds.buffer,
+			leds: Array.from(stripe.leds),
 			brightness: stripe.brightness,
 		})
 	}
