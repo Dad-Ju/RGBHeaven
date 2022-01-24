@@ -20,7 +20,7 @@ io.on('connection', (client) => {
 		const leds = new Uint32Array(stripe.ledcount).fill(data)
 		console.log('🚀 ~ file: server.js ~ line 21 ~ client.on ~ leds', leds)
 
-		rpi.emit('frame', leds.buffer)
+		rpi.emit('frame', Array.from(leds))
 	})
 
 	client.on('setMode', (raw) => {
@@ -36,7 +36,10 @@ server.once('listening', () => {
 	console.log(
 		`Server is up and Running on Port: ${3000}, setting default mode now.`
 	)
-	rpi.emit('frame', new Uint32Array(stripe.ledcount).fill('0xffffff').buffer)
+	rpi.emit(
+		'frame',
+		Array.from(new Uint32Array(stripe.ledcount).fill('0xffffff'))
+	)
 })
 
 server.listen(3000)
