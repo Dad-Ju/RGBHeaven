@@ -2,7 +2,7 @@ const express = require('express')
 const app = require('express')()
 const server = require('http').createServer(app)
 const io = require('socket.io')(server)
-const { rpi, stripe } = require('./rpiclient')
+const { rpi, getStripe } = require('./rpiclient')
 const { colorWipe, setInterrupt } = require('./animations')
 
 app.use(express.static('public'))
@@ -12,7 +12,7 @@ io.on('connection', (client) => {
 		setInterrupt()
 		const data = raw.replace('#', '0x')
 		console.log(`Recived Static: ${data}, Sending it to RPI now!`)
-		const leds = new Uint32Array(stripe.ledcount).fill(data)
+		const leds = new Uint32Array(getStripe().ledcount).fill(data)
 
 		rpi.emit('frame', Array.from(leds))
 	})
@@ -32,7 +32,7 @@ server.once('listening', () => {
 	)
 	rpi.emit(
 		'frame',
-		Array.from(new Uint32Array(stripe.ledcount).fill('0xffffff'))
+		Array.from(new Uint32Array(getStripe().ledcount).fill('0xffffff'))
 	)
 })
 

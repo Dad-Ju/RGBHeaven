@@ -13,4 +13,6 @@ rpi.on('state', (newStripe) => {
 	// console.log('🚀 ~ file: rpiclient.js ~ line 12 ~ rpi.on ~ Stripe', stripe)
 })
 
-module.exports = { stripe, rpi }
+const getStripe = () => stripe
+
+module.exports = { stripe, rpi, getStripe }

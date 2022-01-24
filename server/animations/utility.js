@@ -1,4 +1,4 @@
-const { rpi, stripe } = require('../rpiclient')
+const { rpi, getStripe } = require('../rpiclient')
 
 // eslint-disable-next-line no-promise-executor-return
 const sleep = (time, checkInterrupt) =>
@@ -17,12 +17,13 @@ const sleep = (time, checkInterrupt) =>
 
 const colorWipeRaw = async (color, timeout, checkInterrupt) => {
 	console.log('🚀 ~ file: utility.js ~ line 30 ~ colorWipeRaw ~ color', color)
-
+	const stripe = getStripe()
 	for (let i = 0; i < stripe.ledcount; i += 1) {
 		if (checkInterrupt()) {
 			i = stripe.ledcount
 			return
 		}
+
 		stripe.leds[i] = parseInt(color)
 
 		if (i < 3) {
