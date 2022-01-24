@@ -10,7 +10,7 @@ rpi.on('state', (newStripe) => {
 	const { ledcount, leds, brightness } = newStripe
 	stripe = { ledcount, leds: new Uint32Array(leds), brightness }
 
-	console.log('🚀 ~ file: rpiclient.js ~ line 12 ~ rpi.on ~ Stripe', stripe)
+	// console.log('🚀 ~ file: rpiclient.js ~ line 12 ~ rpi.on ~ Stripe', stripe)
 })
 
 module.exports = { stripe, rpi }
