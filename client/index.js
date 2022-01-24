@@ -33,7 +33,7 @@ io.on('connection', (client) => {
 		stripe.leds = new Uint32Array(data)
 		stripe.render()
 
-		console.log('Showing Stripe!')
+		// console.log('Showing Stripe!')
 		updateState()
 	})
 

@@ -24,6 +24,9 @@ const colorWipeRaw = async (color, timeout, checkInterrupt) => {
 			return
 		}
 		stripe.leds[i] = color
+
+		console.log(stripe.leds)
+
 		rpi.emit('frame', Array.from(stripe.leds))
 
 		// eslint-disable-next-line no-await-in-loop
