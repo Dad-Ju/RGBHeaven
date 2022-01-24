@@ -11,6 +11,10 @@ io.on('connection', (client) => {
 	client.on('setStatic', (raw) => {
 		setInterrupt()
 		const data = parseInt(raw.replace('#', '0x')).toString(16)
+		console.log(
+			'🚀 ~ file: server.js ~ line 14 ~ client.on ~ data',
+			typeof data
+		)
 
 		console.log(`Recived Static: ${data}, Sending it to RPI now!`)
 		const leds = new Uint32Array(stripe.ledcount).fill(data)
