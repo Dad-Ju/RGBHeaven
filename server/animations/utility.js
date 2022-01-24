@@ -25,7 +25,7 @@ const colorWipeRaw = async (color, timeout, checkInterrupt) => {
 		}
 		stripe.leds[i] = parseInt(color)
 
-		if (i < 10) {
+		if (i < 3) {
 			console.log(stripe.leds)
 		}
 
