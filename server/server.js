@@ -10,7 +10,7 @@ app.use(express.static('public'))
 io.on('connection', (client) => {
 	client.on('setStatic', (raw) => {
 		setInterrupt()
-		const data = parseInt(raw.replace('#', '0x')).toString(16)
+		const data = raw.replace('#', '0x')
 		console.log(
 			'🚀 ~ file: server.js ~ line 14 ~ client.on ~ data',
 			typeof data
