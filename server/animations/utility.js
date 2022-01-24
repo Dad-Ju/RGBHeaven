@@ -18,6 +18,7 @@ const sleep = (time, checkInterrupt) =>
 const colorWipeRaw = async (color, timeout, checkInterrupt) => {
 	console.log('🚀 ~ file: utility.js ~ line 30 ~ colorWipeRaw ~ color', color)
 	const stripe = getStripe()
+
 	for (let i = 0; i < stripe.ledcount; i += 1) {
 		if (checkInterrupt()) {
 			i = stripe.ledcount
@@ -25,10 +26,6 @@ const colorWipeRaw = async (color, timeout, checkInterrupt) => {
 		}
 
 		stripe.leds[i] = parseInt(color)
-
-		if (i < 3) {
-			console.log(stripe.leds)
-		}
 
 		rpi.emit('frame', Array.from(stripe.leds))
 
