@@ -18,22 +18,17 @@ const animations = fs
 		}
 	}, {})
 
-const setMode = async (args) => {
+const callAnimation = async (args) => {
 	const animation = animations[args.mode]
-
-	console.log(
-		'🚀 ~ file: index.js ~ line 21 ~ setMode ~ animation',
-		animation
-	)
+	animation.setup(args)
+	setInterrupt(false)
 
 	let done = false
-	while (!done) {
-		if (checkInterrupt()) {
-			animation.setup(args)
-		}
+	while (!done && !checkInterrupt()) {
 		// eslint-disable-next-line no-await-in-loop
 		done = await animation.run()
 	}
+	console.log('End Animation')
 }
 
-module.exports = { setMode, setInterrupt }
+module.exports = { callAnimation, setInterrupt }

@@ -3,14 +3,12 @@ const { sleep } = require('./utility')
 
 let color
 let timeout
-let checkInterrupt
 let i
 
-const setup = (inColor, inTimeout, inCheckInterrupt) => {
+const setup = (args) => {
 	i = 0
-	color = inColor || 0xffffff
-	timeout = inTimeout || 10
-	checkInterrupt = inCheckInterrupt
+	color = args.color || '0xffffff'
+	timeout = args.timeout || 10
 }
 
 const colorWipe = async () => {
@@ -26,7 +24,7 @@ const colorWipe = async () => {
 	i += 1
 
 	// eslint-disable-next-line no-await-in-loop
-	await sleep(timeout, checkInterrupt)
+	await sleep(timeout)
 	return false
 }
 
@@ -34,7 +32,7 @@ module.exports = {
 	name: 'wipe',
 	desc: 'Replaces the current Stripe one by one with the Color',
 	args: {
-		color: 0xffffff,
+		color: '0xffffff',
 		timeout: 10,
 	},
 	setup,

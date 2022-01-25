@@ -1,7 +1,7 @@
 let interrupt = false
 
-const setInterrupt = () => {
-	interrupt = true
+const setInterrupt = (bool) => {
+	interrupt = typeof bool != 'undefined' ? bool : true
 }
 
 const checkInterrupt = () => interrupt
