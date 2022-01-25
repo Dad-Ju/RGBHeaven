@@ -1,15 +1,18 @@
 const express = require('express')
-const app = require('express')()
-const server = require('http').createServer(app)
-const io = require('socket.io')(server)
+const http = require('http')
+const socketio = require('socket.io')
 const { rpi, getStripe } = require('./rpiclient')
-const { colorWipe, setInterrupt } = require('./animations')
+const { setMode, setInterrupt } = require('./animations')
+
+const app = express()
+const server = http.createServer(app)
+const io = socketio(server)
 
 app.use(express.static('public'))
 
 io.on('connection', (client) => {
 	client.on('setStatic', (raw) => {
-		setInterrupt()
+		// setInterrupt()
 		const data = raw.replace('#', '0x')
 		console.log(`Recived Static: ${data}, Sending it to RPI now!`)
 		const leds = new Uint32Array(getStripe().ledcount).fill(data)
@@ -19,20 +22,17 @@ io.on('connection', (client) => {
 
 	client.on('setMode', (raw) => {
 		const color = raw.color.replace('#', '0x')
+		const args = { ...raw, color }
 		console.log('Recived Animation, Sending it to Animation now!', raw)
 
 		setInterrupt()
-		setTimeout(() => colorWipe(color, raw.timeout), 12)
+		setTimeout(() => setMode(args), 12)
 	})
 })
 
 server.once('listening', () => {
 	console.log(
 		`Server is up and Running on Port: ${3000}, setting default mode now.`
-	)
-	rpi.emit(
-		'frame',
-		Array.from(new Uint32Array(getStripe().ledcount).fill('0xffffff'))
 	)
 })
 

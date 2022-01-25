@@ -1,4 +1,4 @@
-const rpi = require('socket.io-client')('http://localhost:3001')
+const rpi = require('socket.io-client')('http://192.168.192.203:3001')
 
 let stripe = {
 	ledcount: 150,
