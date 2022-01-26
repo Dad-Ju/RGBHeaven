@@ -1,4 +1,5 @@
 {
+	"ignorePatterns": ["**/dashboard/**"],
 	"env": {
 		"browser": true,
 		"commonjs": true,
@@ -13,7 +14,7 @@
 		"dot-location": "warn",
 		"dot-notation": "warn",
 		"eol-last": "error",
-		"indent": "error",
+		"indent": "off",
 		"key-spacing": "error",
 		"max-depth": ["error", 4],
 		"complexity": ["off", 2],
@@ -34,7 +35,6 @@
 				"no-restricted-syntax": "off",
 				"guard-for-in": "off",
 				"semi": "off",
-				"indent": "off",
 				"comma-dangle": "off",
 				"prefer-const": "off",
 				"operator-linebreak": "off",
@@ -44,7 +44,7 @@
 				"global-require": "off",
 				"no-extra-semi": "off"
 			},
-			"files": ["./**/*.js"]
+			"files": ["./**/**"]
 		}
 	]
 }

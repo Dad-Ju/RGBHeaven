@@ -8,11 +8,13 @@
 	"private": true,
 	"workspaces": [
 		"server",
-		"client"
+		"client",
+		"dashboard"
 	],
 	"scripts": {
 		"client": "yarn workspace client",
 		"server": "yarn workspace server",
+		"dashboard": "yarn workspace dashboard",
 		"lint": "eslint --fix ./",
 		"dev-all": "concurrently --kill-others \"yarn client dev\" \"yarn server dev\"",
 		"rpi": "sudo yarn client dev",
