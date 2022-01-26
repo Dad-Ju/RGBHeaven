@@ -1,0 +1,51 @@
+{
+	"env": {
+		"browser": true,
+		"commonjs": true,
+		"es2021": true
+	},
+	"plugins": ["react"],
+	"rules": {
+		"array-bracket-newline": "error",
+		"arrow-spacing": "error",
+		"block-scoped-var": "warn",
+		"brace-style": "error",
+		"camelcase": "warn",
+		"dot-location": "warn",
+		"dot-notation": "warn",
+		"eol-last": "error",
+		"indent": "off",
+		"key-spacing": "error",
+		"max-depth": ["error", 4],
+		"complexity": ["off", 2],
+		"prefer-arrow-callback": "error"
+	},
+	"extends": ["prettier", "airbnb-base", "plugin:react/recommended"],
+	"parserOptions": {
+		"ecmaVersion": "latest",
+		"ecmaFeatures": { "jsx": true }
+	},
+	"overrides": [
+		{
+			"rules": {
+				"no-console": "off",
+				"no-tabs": "off",
+				"eqeqeq": "off",
+				"default-case": "off",
+				"radix": ["error", "as-needed"],
+				"no-restricted-syntax": "off",
+				"guard-for-in": "off",
+				"semi": "off",
+				"comma-dangle": "off",
+				"prefer-const": "off",
+				"operator-linebreak": "off",
+				"func-names": "off",
+				"no-case-declarations": "off",
+				"semi-style": "off",
+				"global-require": "off",
+				"no-extra-semi": "off"
+			},
+			"files": ["./**/*.jsx"]
+		}
+	]
+}

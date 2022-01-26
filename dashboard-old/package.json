@@ -1,0 +1,22 @@
+{
+	"name": "dashboard",
+	"description": "Client to deploy on the RPi",
+	"version": "1.0.0",
+	"license": "MIT",
+	"scripts": {
+		"dev": "snowpack dev",
+		"build": "snowpack build"
+	},
+	"devDependencies": {
+		"@snowpack/plugin-react-refresh": "^2.5.0",
+		"eslint-plugin-react": "^7.28.0",
+		"snowpack": "^3.3.7"
+	},
+	"dependencies": {
+		"@emotion/react": "^11.7.1",
+		"@emotion/styled": "^11.6.0",
+		"@mui/material": "^5.3.1",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2"
+	}
+}
