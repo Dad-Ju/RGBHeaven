@@ -30,8 +30,9 @@ io.on('connection', (client) => {
 	}
 	updateState()
 
-	client.on('frame', (data) => {
-		stripe.leds = new Uint32Array(data)
+	client.on('frame', ({ leds, brightness }) => {
+		stripe.leds = new Uint32Array(leds)
+		if (typeof brightness != 'undefined') stripe.brightness = brightness
 		stripe.render()
 
 		// console.log('Showing Stripe!')

@@ -6,7 +6,7 @@
             const server = io()
             const sendData = (form) => {
                 console.log("Sending to Client", form.num.value)
-                server.emit("setStatic", form.num.value)
+                server.emit("setStatic", {color: form.num.value, brightness: form.brightness.value})
             }
 
             const startAnimation = (form) => {
@@ -18,14 +18,15 @@
     <body>
         <form action="" onsubmit="return false">
             <input id="num" type="color" value="#00FF00">
-            <input type="submit" onclick="sendData(this.form)">
+            <input id="brightness" type="number" value="50">
+            <input type="button" onclick="sendData(this.form)" value="Submit">
         </form>
         <br>
         <form action="" onsubmit="return false">
             <input id="color" type="text" value="#FFFFFF">
             <input id="timeout" type="number" value="50">
             <input id="mode" type="text" value="wipe">
-            <input type="button" onclick="startAnimation(this.form)">
+            <input type="button" onclick="startAnimation(this.form)" value="Submit">
         </form>
     </body>
 </html>

@@ -21,7 +21,7 @@ const config = {
 	},
 	buildOptions: {
 		out: '../server/public',
-		clean: true,
+		clean: false,
 	},
 }
 

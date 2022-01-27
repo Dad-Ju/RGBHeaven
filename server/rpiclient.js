@@ -15,4 +15,13 @@ rpi.on('state', (newStripe) => {
 
 const getStripe = () => stripe
 
-module.exports = { stripe, rpi, getStripe }
+const updateStripe = (leds, brightness) => {
+	rpi.emit('frame', Array.from({ leds, brightness }))
+}
+
+module.exports = {
+	stripe,
+	rpi,
+	getStripe,
+	updateStripe,
+}

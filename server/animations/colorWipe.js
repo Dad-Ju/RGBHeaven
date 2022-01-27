@@ -1,4 +1,4 @@
-const { rpi, getStripe } = require('../rpiclient')
+const { getStripe, updateStripe } = require('../rpiclient')
 const { sleep } = require('./utility')
 
 let color
@@ -20,7 +20,7 @@ const colorWipe = async () => {
 
 	stripe.leds[i] = parseInt(color)
 
-	rpi.emit('frame', Array.from(stripe.leds))
+	updateStripe(stripe.leds)
 	i += 1
 
 	// eslint-disable-next-line no-await-in-loop
