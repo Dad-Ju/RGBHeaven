@@ -104,5 +104,7 @@ dist
 # TernJS port file
 .tern-port
 
-# Snowpack files
+# Snowpack files and preventing the Build Stuff to be shipped
 .snowpack
+server/public/*
+!/server/public/test.html
