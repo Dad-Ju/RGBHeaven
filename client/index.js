@@ -32,7 +32,9 @@ io.on('connection', (client) => {
 
 	client.on('frame', ({ leds, brightness }) => {
 		stripe.leds = new Uint32Array(leds)
-		if (typeof brightness != 'undefined') stripe.brightness = brightness
+		if (typeof brightness != 'undefined') {
+			stripe.brightness = parseInt(brightness)
+		}
 		stripe.render()
 
 		// console.log('Showing Stripe!')
