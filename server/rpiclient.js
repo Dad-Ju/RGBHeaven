@@ -16,7 +16,10 @@ rpi.on('state', (newStripe) => {
 const getStripe = () => stripe
 
 const updateStripe = (leds, brightness) => {
-	rpi.emit('frame', Array.from({ leds, brightness: brightness || undefined }))
+	rpi.emit('frame', {
+		leds: Array.from(leds),
+		brightness: brightness || undefined,
+	})
 }
 
 module.exports = {

@@ -30,9 +30,7 @@ io.on('connection', (client) => {
 	}
 	updateState()
 
-	client.on('frame', (data) => {
-		const { leds, brightness } = data
-		console.log(leds, brightness)
+	client.on('frame', ({ leds, brightness }) => {
 		stripe.leds = new Uint32Array(leds)
 		if (typeof brightness != 'undefined') stripe.brightness = brightness
 		stripe.render()
