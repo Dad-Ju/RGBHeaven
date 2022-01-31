@@ -3,32 +3,22 @@ const { sleep, generateRainbowWave } = require('./utility')
 
 let i = 0
 let timeout = 10
-let reverse = false
 let wave = []
 
 const setup = (args) => {
 	wave = generateRainbowWave(getStripe().ledcount)
 	i = 0
 	timeout = args.timeout || 10
-	reverse = args.reverse || false
 }
 
-const rainbow = async () => {
+const rainbowFade = async () => {
 	const stripe = getStripe()
 
 	if (i >= stripe.ledcount) {
 		return true
 	}
 
-	let toMove = reverse ? wave.pop() : wave.shift()
-
-	if (reverse) {
-		wave = [toMove, ...wave]
-	} else {
-		wave = [...wave, toMove]
-	}
-
-	const leds = new Uint32Array(wave.map((colors) => parseInt(colors)))
+	const leds = new Uint32Array(stripe.ledcount).fill(wave[i])
 	stripe.leds = leds
 
 	updateStripe(leds)
@@ -39,12 +29,11 @@ const rainbow = async () => {
 }
 
 module.exports = {
-	name: 'rainbow',
-	desc: 'Start a Rainbow Animation',
+	name: 'rainbowFade',
+	desc: 'Start a Rainbow Animation in Fade Mode',
 	args: {
-		reverse: false,
 		timeout: 10,
 	},
 	setup,
-	run: rainbow,
+	run: rainbowFade,
 }

@@ -21,7 +21,6 @@ const animations = fs
 const callAnimation = async (args) => {
 	const animation = animations[args.mode]
 	animation.setup(args)
-	setInterrupt(false)
 
 	let done = false
 	while (!done && !checkInterrupt()) {

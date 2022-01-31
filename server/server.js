@@ -27,7 +27,10 @@ io.on('connection', (client) => {
 		console.log('Recived Animation, Sending it to Animation now!', raw)
 
 		setInterrupt()
-		setTimeout(() => callAnimation(args), 6)
+		setTimeout(() => {
+			setInterrupt(false)
+			callAnimation(args)
+		}, 6)
 	})
 
 	client.on('setPlaylist', (raw) => {
