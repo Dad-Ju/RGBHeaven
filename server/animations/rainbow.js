@@ -32,7 +32,7 @@ const rainbow = async () => {
 	stripe.leds = leds
 
 	updateStripe(leds)
-
+	i += 1
 	await sleep(timeout)
 
 	return false

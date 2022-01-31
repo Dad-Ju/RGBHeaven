@@ -31,4 +31,15 @@ const callAnimation = async (args) => {
 	console.log('End Animation')
 }
 
-module.exports = { callAnimation, setInterrupt }
+const runPlaylist = async (args) => {
+	setInterrupt(false)
+	while (!checkInterrupt()) {
+		// eslint-disable-next-line no-plusplus
+		for (let i = 0; i < args.length; i++) {
+			// eslint-disable-next-line no-await-in-loop
+			await callAnimation(args[i])
+		}
+	}
+}
+
+module.exports = { runPlaylist, callAnimation, setInterrupt }

@@ -19,7 +19,7 @@ const sleep = (time) =>
 				clearInterval(interval)
 				res()
 			}
-		}, 10)
+		}, 5)
 	})
 
 function byte2Hex(number) {

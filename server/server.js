@@ -2,7 +2,7 @@ const express = require('express')
 const http = require('http')
 const socketio = require('socket.io')
 const { updateStripe, getStripe } = require('./rpiclient')
-const { setInterrupt, callAnimation } = require('./animations')
+const { setInterrupt, callAnimation, runPlaylist } = require('./animations')
 
 const app = express()
 const server = http.createServer(app)
@@ -18,7 +18,7 @@ io.on('connection', (client) => {
 		console.log(`Recived Static: ${color}, Sending it to RPI now!`)
 		const leds = new Uint32Array(getStripe().ledcount).fill(color)
 
-		setTimeout(() => updateStripe(leds, brightness), 12)
+		setTimeout(() => updateStripe(leds, brightness), 6)
 	})
 
 	client.on('setMode', (raw) => {
@@ -27,7 +27,13 @@ io.on('connection', (client) => {
 		console.log('Recived Animation, Sending it to Animation now!', raw)
 
 		setInterrupt()
-		setTimeout(() => callAnimation(args), 12)
+		setTimeout(() => callAnimation(args), 6)
+	})
+
+	client.on('setPlaylist', (raw) => {
+		setInterrupt()
+		setTimeout(() => runPlaylist(raw), 6)
+		console.log('Recived Playlist, Sending to LOOP now.')
 	})
 })
 

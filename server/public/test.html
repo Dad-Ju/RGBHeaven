@@ -13,20 +13,31 @@
                 console.log("Sending to Client", form.mode.value)
                 server.emit("setMode", {mode: form.mode.value, color: form.color.value, timeout: parseInt(form.timeout.value)})
             }
+
+            const startPlaylist = (form) => {
+                const playlist = JSON.parse(form.raw.value)
+                console.log("Got Playlist", playlist);
+                server.emit("setPlaylist", playlist)
+            }
         </script>
     </head>
     <body>
         <form action="" onsubmit="return false">
             <input id="num" type="color" value="#00FF00">
             <input id="brightness" type="number" value="50">
-            <input type="button" onclick="sendData(this.form)" value="Submit">
+            <input type="button" onclick="sendData(this.form)" value="Set Static">
         </form>
         <br>
         <form action="" onsubmit="return false">
             <input id="color" type="text" value="#FFFFFF">
             <input id="timeout" type="number" value="50">
             <input id="mode" type="text" value="wipe">
-            <input type="button" onclick="startAnimation(this.form)" value="Submit">
+            <input type="button" onclick="startAnimation(this.form)" value="Set Mode">
+        </form>
+        <br>
+        <form action="" onsubmit="return false">
+            <input id="raw" type="text" value="[{}]">
+            <input type="button" onclick="startPlaylist(this.form)" value="Set Playlist">
         </form>
     </body>
 </html>
