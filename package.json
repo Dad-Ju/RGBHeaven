@@ -12,6 +12,7 @@
 		"dashboard"
 	],
 	"scripts": {
+		"start": "yarn dashboard build && concurrently --kill-others \"yarn rpi\" \"yarn server dev\"",
 		"client": "yarn workspace client",
 		"server": "yarn workspace server",
 		"dashboard": "yarn workspace dashboard",
