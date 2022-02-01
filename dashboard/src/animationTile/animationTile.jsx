@@ -6,7 +6,7 @@ import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import Stack from "@mui/material/Stack";
 import PlaylistAdd from "@mui/icons-material/PlaylistAdd"
-import React from "React";
+import React from "react";
 import { socket } from "../service/socket";
 
 

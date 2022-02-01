@@ -1,11 +1,11 @@
 {
 	"name": "dashboard",
-	"description": "Dashboard for the Server",
-	"version": "1.0.0",
+	"version": "0.0.0",
 	"license": "MIT",
 	"scripts": {
-		"dev": "snowpack dev",
-		"build": "snowpack build"
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview"
 	},
 	"dependencies": {
 		"@emotion/react": "^11.7.1",
@@ -16,8 +16,8 @@
 		"react-dom": "^17.0.2"
 	},
 	"devDependencies": {
-		"@snowpack/plugin-react-refresh": "^2.5.0",
+		"@vitejs/plugin-react": "^1.0.7",
 		"eslint-plugin-react": "^7.28.0",
-		"snowpack": "^3.3.7"
+		"vite": "^2.7.2"
 	}
 }
