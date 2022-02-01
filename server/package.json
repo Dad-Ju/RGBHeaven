@@ -1,6 +1,6 @@
 {
 	"name": "server",
-	"description": "Server that does the Processing of Animations and serves as Webcontrollpanel",
+	"description": "Server that does the Processing of Animations and serves the Dashboard",
 	"version": "1.0.0",
 	"license": "MIT",
 	"main": "server.js",

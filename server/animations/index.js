@@ -19,7 +19,8 @@ const animations = fs
 	}, {})
 
 const callAnimation = async (args) => {
-	const animation = animations[args.mode]
+	console.log('🚀 ~ file: index.js ~ line 22 ~ callAnimation ~ args', args)
+	const animation = animations[args.name]
 	animation.setup(args)
 
 	let done = false
@@ -41,4 +42,9 @@ const runPlaylist = async (args) => {
 	}
 }
 
-module.exports = { runPlaylist, callAnimation, setInterrupt }
+module.exports = {
+	runPlaylist,
+	callAnimation,
+	setInterrupt,
+	animations,
+}

@@ -1,8 +1,12 @@
 import React from 'react';
+import Dashboard from './dashboard';
+import { socket, SocketContext } from './service/socket';
 
 function App() {
   return (
-    <h1>Hello World</h1>
+    <SocketContext.Provider value={socket}>
+      <Dashboard />
+    </SocketContext.Provider>
   );
 }
 

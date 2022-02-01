@@ -4,6 +4,11 @@
         <script src="/socket.io/socket.io.js"></script>
         <script>
             const server = io()
+            
+            server.on("animations", (animationlist) => {
+                console.log(animationlist)
+            })
+
             const sendData = (form) => {
                 console.log("Sending to Client", form.num.value)
                 server.emit("setStatic", {color: form.num.value, brightness: form.brightness.value})
