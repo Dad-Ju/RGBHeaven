@@ -11,12 +11,12 @@
 
             const sendData = (form) => {
                 console.log("Sending to Client", form.num.value)
-                server.emit("setStatic", {color: form.num.value, brightness: form.brightness.value})
+                server.emit("setStatic", {color: form.num.value.replace("#", "0x"), brightness: form.brightness.value})
             }
 
             const startAnimation = (form) => {
                 console.log("Sending to Client", form.mode.value)
-                server.emit("setMode", {mode: form.mode.value, color: form.color.value, timeout: parseInt(form.timeout.value)})
+                server.emit("setMode", {name: form.mode.value, color: form.color.value, timeout: parseInt(form.timeout.value)})
             }
 
             const startPlaylist = (form) => {
@@ -34,7 +34,7 @@
         </form>
         <br>
         <form action="" onsubmit="return false">
-            <input id="color" type="text" value="#FFFFFF">
+            <input id="color" type="text" value="0xFFFFFF">
             <input id="timeout" type="number" value="50">
             <input id="mode" type="text" value="wipe">
             <input type="button" onclick="startAnimation(this.form)" value="Set Mode">
