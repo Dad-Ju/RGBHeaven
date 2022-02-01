@@ -18,7 +18,7 @@
 		"lint": "eslint --fix ./",
 		"dev-all": "concurrently --kill-others \"yarn client dev\" \"yarn server dev\"",
 		"rpi": "sudo yarn client dev",
-		"dev": "yarn server dev"
+		"dev": "concurrently --kill-others \"yarn dashboard dev\" \"yarn server dev\""
 	},
 	"devDependencies": {
 		"concurrently": "^7.0.0",
