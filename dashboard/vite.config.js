@@ -7,7 +7,7 @@ const config = {
 	root: './src',
 	plugins: [react()],
 	build: {
-		outDir: '../server/public',
+		outDir: '../../server/public',
 		emptyOutDir: false,
 		minify: 'esbuild',
 	},
