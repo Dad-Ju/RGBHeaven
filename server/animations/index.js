@@ -19,7 +19,6 @@ const animations = fs
 	}, {})
 
 const callAnimation = async (args) => {
-	console.log('🚀 ~ file: index.js ~ line 22 ~ callAnimation ~ args', args)
 	const animation = animations[args.name]
 	animation.setup(args)
 
@@ -28,7 +27,7 @@ const callAnimation = async (args) => {
 		// eslint-disable-next-line no-await-in-loop
 		done = await animation.run()
 	}
-	console.log('End Animation')
+	// console.log('End Animation')
 }
 
 const runPlaylist = async (args) => {
