@@ -105,6 +105,4 @@ dist
 .tern-port
 
 # Snowpack files and preventing the Build Stuff to be shipped
-.snowpack
 server/public/*
-!/server/public/test.html
