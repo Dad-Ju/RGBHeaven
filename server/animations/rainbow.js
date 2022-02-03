@@ -7,10 +7,12 @@ let reverse = false
 let wave = []
 
 const setup = (args) => {
+	console.log('🚀 ~ file: rainbow.js ~ line 10 ~ setup ~ args', args)
+
 	wave = generateRainbowWave(getStripe().ledcount)
 	i = 0
 	timeout = args.timeout || 10
-	reverse = typeof args.reverse == 'undefined' ? false : args.reverse
+	reverse = args.reverse || false
 }
 
 const rainbow = async () => {
