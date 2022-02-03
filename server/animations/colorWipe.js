@@ -33,7 +33,7 @@ module.exports = {
 	desc: 'Replaces the current Stripe one by one with the Color',
 	args: {
 		color: '0xffffff',
-		timeout: 10,
+		timeout: 15,
 	},
 	setup,
 	run: colorWipe,

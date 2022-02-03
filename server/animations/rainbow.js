@@ -10,7 +10,7 @@ const setup = (args) => {
 	wave = generateRainbowWave(getStripe().ledcount)
 	i = 0
 	timeout = args.timeout || 10
-	reverse = args.reverse || false
+	reverse = typeof args.reverse == 'undefined' ? false : args.reverse
 }
 
 const rainbow = async () => {
@@ -43,7 +43,7 @@ module.exports = {
 	desc: 'Start a Rainbow Animation',
 	args: {
 		reverse: false,
-		timeout: 10,
+		timeout: 50,
 	},
 	setup,
 	run: rainbow,

@@ -32,7 +32,7 @@ module.exports = {
 	name: 'rainbowFade',
 	desc: 'Start a Rainbow Animation in Fade Mode',
 	args: {
-		timeout: 10,
+		timeout: 50,
 	},
 	setup,
 	run: rainbowFade,
