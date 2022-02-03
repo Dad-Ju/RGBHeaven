@@ -20,12 +20,12 @@ const rainbow = async () => {
 		return true
 	}
 
-	let toMove = reverse ? wave.pop() : wave.shift()
+	let toMove = reverse ? wave.shift() : wave.pop()
 
 	if (reverse) {
-		wave = [toMove, ...wave]
-	} else {
 		wave = [...wave, toMove]
+	} else {
+		wave = [toMove, ...wave]
 	}
 
 	const leds = new Uint32Array(wave.map((colors) => parseInt(colors)))
