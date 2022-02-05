@@ -1,8 +1,16 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-const gpiop = require('rpi-gpio').promise
+const gpio = require('rpi-gpio')
 
-gpiop.setup(0, gpiop.DIR_IN)
+function readInput(err) {
+	if (err) throw err
+	gpio.read(0, (error, value) => {
+		if (error) throw error
+		console.log(`The value is ${value}`)
+	})
+}
 
-gpiop.on('export', (value) => {
-	console.log('Yeet', value)
-})
+gpio.setup(0, gpio.EDGE_RISING, readInput)
+
+// gpio.on('export', (value) => {
+// 	console.log('Yeet', value)
+// })
