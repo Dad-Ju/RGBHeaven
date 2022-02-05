@@ -3,9 +3,9 @@ const { Gpio } = require('pigpio')
 
 const button = new Gpio(0, {
 	mode: Gpio.INPUT,
-	pullUpDown: Gpio.PUD_UP,
+	pullUpDown: Gpio.PUD_DOWN,
 	edge: Gpio.EITHER_EDGE,
-	timeout: null,
+	// timeout: null,
 })
 
 // Level must be stable for 10 ms before an alert event is emitted.
