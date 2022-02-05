@@ -1,7 +1,9 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { Gpio } = require('pigpio')
 
+// Set pin to High
 new Gpio(2, { mode: Gpio.OUTPUT }).digitalWrite(1)
+console.log('VCC High!')
 
 const button = new Gpio(0, {
 	mode: Gpio.INPUT,
