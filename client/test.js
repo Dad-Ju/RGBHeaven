@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { Gpio } = require('pigpio')
 
-const button = new Gpio(23, {
+const button = new Gpio(0, {
 	mode: Gpio.INPUT,
 	pullUpDown: Gpio.PUD_DOWN,
 	alert: true,
