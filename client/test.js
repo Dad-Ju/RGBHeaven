@@ -1,9 +1,9 @@
-var gpiop = require('rpi-gpio').promise
+// eslint-disable-next-line import/no-extraneous-dependencies
+const gpiop = require('rpi-gpio').promise
 
-;(async () => {
-	const lighton = await gpiop.setup(0, 'rising')
+// eslint-disable-next-line import/newline-after-import
+await gpiop.setup(0, gpiop.DIR_IN)
 
-	lighton.on('value', (value) => {
-		console.log('Yeet', value)
-	})
-})()
+gpiop.on('export', (value) => {
+	console.log('Yeet', value)
+})
