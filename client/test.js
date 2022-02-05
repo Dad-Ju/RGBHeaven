@@ -1,16 +1,15 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-const gpio = require('rpi-gpio')
+const { Gpio } = require('pigpio')
 
-function readInput(err) {
-	if (err) throw err
-	gpio.read(0, (error, value) => {
-		if (error) throw error
-		console.log(`The value is ${value}`)
-	})
-}
+const button = new Gpio(23, {
+	mode: Gpio.INPUT,
+	pullUpDown: Gpio.PUD_DOWN,
+	alert: true,
+})
 
-gpio.setup(0, gpio.EDGE_RISING, readInput)
+// Level must be stable for 10 ms before an alert event is emitted.
+button.glitchFilter(10000)
 
-// gpio.on('export', (value) => {
-// 	console.log('Yeet', value)
-// })
+button.on('alert', (level) => {
+	console.log(level)
+})
