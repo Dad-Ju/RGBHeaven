@@ -7,7 +7,7 @@ console.log('VCC High!')
 
 const button = new Gpio(0, {
 	mode: Gpio.INPUT,
-	pullUpDown: Gpio.PUD_DOWN,
+	pullUpDown: Gpio.PUD_UP,
 	alert: true,
 })
 
