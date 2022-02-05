@@ -3,14 +3,13 @@ const { Gpio } = require('pigpio')
 
 const button = new Gpio(17, {
 	mode: Gpio.INPUT,
-	pullUpDown: Gpio.PUD_DOWN,
-	edge: Gpio.EITHER_EDGE,
-	// timeout: null,
+	pullUpDown: Gpio.PUD_UP,
+	alert: true,
 })
 
-// Level must be stable for 100 ms before an alert event is emitted.
-button.glitchFilter(100000)
+// Level must be stable for 10 ms before an alert event is emitted.
+button.glitchFilter(1000)
 
-button.on('interrupt', (level) => {
+button.on('alert', (level) => {
 	console.log(level)
 })
